@@ -4,7 +4,6 @@ for t in range(10):
     buildings = list(map(int, input().split()))
 
     answer = 0
-    i = 2
     for i in range(2, N-2):
         building_num = []
         
