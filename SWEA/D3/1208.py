@@ -11,7 +11,8 @@ for t in range(10):
         min_height = min(height)
         min_index = height.index(min_height)
         height[min_index] = min_height + 1
-    
+
+        # 제약조건에 의해
         if max_height - min_height <= 1:
             break
         else:
