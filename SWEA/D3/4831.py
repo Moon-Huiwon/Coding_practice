@@ -2,11 +2,11 @@
 T = int(input())
 for t in range(T):
     K, N, M = map(int, input().split())
-    M = list(map(int, input().split()))
+    bus_stop = list(map(int, input().split()))
 
     # 정류장을 idx로 사용하고, 충전기 여부를 0과 1를 사용해서 표시
     charge_list = [0] * (N+1)
-    for charge_num in M:
+    for charge_num in bus_stop:
         charge_list[charge_num] = 1
 
     # 출발지 (and 충전한 정류장)
