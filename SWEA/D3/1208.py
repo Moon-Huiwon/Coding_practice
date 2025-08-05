@@ -13,7 +13,7 @@ for t in range(10):
         height[min_index] = min_height + 1
 
         if max_height - min_height <= 1:
-            print(f'#{t+1} {max(height) - min(height)}')
+            break
         else:
             continue
 
