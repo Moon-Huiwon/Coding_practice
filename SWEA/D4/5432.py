@@ -85,12 +85,18 @@ for test_case in range(1, T+1):
     stack = []
     cnt = 0
     for i in range(len(sticks)):
+        # 쇠막대기 등장으로 stack에 쌓기
         if sticks[i] == "(":
             stack.append("(")
+        
         elif sticks[i] == ")":
+            # 레이저가 발생하므로 stack에 저장된 '('을 제거하고, 
+            # stack에 쌓여있는 막대기 개수만큼 카운트(조각이 하나 씩 생기기 때문에)
             if sticks[i-1] == "(":
                 stack.pop()
                 cnt += len(stack)
+            # 레이저가 발생한게 아니면 쇠막대기가 마지막이라는 것이기 때문에
+            # pop 활용하여 쇠막대기 제거하고, 마지막 조각 +1
             else:
                 stack.pop()
                 cnt += 1
