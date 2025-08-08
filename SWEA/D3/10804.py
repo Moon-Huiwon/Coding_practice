@@ -11,11 +11,14 @@ for t in range(T):
     # 문자열 받기
     str = list(input())
     # 거꾸로 재설정
-    str = str[::-1]
+    # str = str[::-1]
+    reversed_str = []
+    for i in range(len(str)-1, -1, -1):
+        reversed_str.append(str[i])
 
     # **주의 replace를 활용해서 한꺼번에 바꾸면 안됨
     # 한글자씩 차례대로 replace_dict를 활용하여 문자 변경
-    for i in range(len(str)):
-        str[i] = replace_dict[str[i]]
+    for i in range(len(reversed_str)):
+        reversed_str[i] = replace_dict[reversed_str[i]]
 
-    print(f'#{t+1} {"".join(str)}')
+    print(f'#{t+1} {"".join(reversed_str)}')
