@@ -1,4 +1,17 @@
 #%%
+# stack 활용한 코드
+for t in range(10):
+    N, tmp_password = map(str, input().split())
+    stack = []
+    for num in tmp_password:
+        if len(stack) > 0 and stack[-1] == num:
+            stack.pop()
+        else:
+            stack.append(num)
+    print(f'#{t+1} {"".join(stack)}')
+
+#%%
+# stack 활용 안한 코드
 def password_seperate(n):
 
     if n == 0:
@@ -31,4 +44,5 @@ for t in range(10):
     real_password = delete(password_list, 0, N)
 
     print(f'#{t+1} {real_password}')
+
 
