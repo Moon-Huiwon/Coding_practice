@@ -78,7 +78,24 @@ for t in range(T):
 #     print(f'#{t+1} {cnt}')
 
 
-# 더 간단한 코드
+# 스택 활용한 코드 (내 코드)
+stick_laser = input()
+stick_laser = stick_laser.replace('()', 'L')
+stack = []
+cnt = 0
+for s in stick_laser:
+    if s == '(':
+        stack.append('(')
+    elif s == 'L':
+        cnt += len(stack)
+    else:
+        if len(stack) > 0 and stack[-1] == '(':
+            stack.pop()
+            cnt += 1
+print(cnt)
+
+
+# 더 간단한 코드 (다른 사람 코드)
 T = int(input())
 for test_case in range(1, T+1):
     sticks = list(map(str, input()))
