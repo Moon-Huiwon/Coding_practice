@@ -56,4 +56,4 @@ for i in range(1, n):
     pascal.append(row)
     
 for row in pascal:
-    print(row)
+    print(*row)
