@@ -30,3 +30,30 @@ for t in range(T):
             stack.append(1)
     
         print(*stack)
+
+#%%
+# 강사님 코드
+n = int(input())
+
+# 첫줄은 무조건 1 하나
+pascal = [
+    [1],
+]
+
+# 두번째 (1번째) 부터 n번째까지 반복해서 채워넣을 것이다.
+for i in range(1, n):
+    # i번째 줄의 첫번째 숫자는 1이다.
+    row = [1]
+    
+    # i번째 줄의 '1 ~ i-1' 칸 까지는
+    for j in range(1, i):
+        # 이전줄(i-1)의 이전칸(j-1) + 이전줄(i-1)의 현재칸(j)를 합한 값이다.
+        row.append(pascal[i-1][j-1] + pascal[i-1][j])
+
+    # i번째 줄의 마지막 숫자는 1이다.
+    row.append(1)
+    # 줄이 완성되었으며 pascal에 넣기
+    pascal.append(row)
+    
+for row in pascal:
+    print(row)
