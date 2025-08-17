@@ -6,7 +6,7 @@ def dfs(n, cx, cy, visitied):
     if n == 2 and ans >= len(visitied)*2:
         return
     
-    if n > 3: # 방향을 바꾼 횟수는 최대 3번 이어야한다.
+    if n > 3: # 방향을 바꾼 횟수는 3번 이어야한다.
         return
     
     if n == 3 and (i,j) == (cx, cy): # 처음 출발 지점으로 오면 정답 도출
