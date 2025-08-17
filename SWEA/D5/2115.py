@@ -23,7 +23,7 @@ for t in range(T):
     arr = [list(map(int, input().split())) for _ in range(N)]
     
     # ans와 sm 초기화
-    ans = sm = 0
+    ans = 0
     
     # memoization 활용
     # 각 위치에 max_quantity 저장하기
