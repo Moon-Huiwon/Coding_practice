@@ -22,7 +22,7 @@ for t in range(T):
     N, M, C = map(int, input().split())
     arr = [list(map(int, input().split())) for _ in range(N)]
     
-    # ans와 sm 초기화
+    # ans 초기설정
     ans = 0
     
     # memoization 활용
