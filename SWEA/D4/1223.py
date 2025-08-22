@@ -58,3 +58,68 @@ for t in range(10):
     # 테스트 케이스가 전부 옳은 계산식이므로
     # stack[0]으로 답 출력
     print(f'#{t+1} {stack[0]}')
+
+
+#%%
+# 강사님 코드
+expression = input()
+# 후위표기법 변환을 위해 stack을 만들자
+stack = []
+# 변환된 후위표기법을 표기하기 위한 변수
+result_expr = ''
+
+# 각 토큰(숫자와 연산자)를 하나씩 확인한다.
+for token in expression:
+    # 숫자는 그대로 출력
+    if token not in '*+':
+        result_expr += token
+        # 다음 토큰으로
+        continue
+    # 여기부터는 연산잔 판단
+    # 1. stack이 비어있을 경우 그냥 푸시
+    if not stack:
+        stack.append(token)
+    # 2. 아닌데 지금 토큰이 *인 경우
+    elif token =='*':
+        # 나보다 우선순위가 높거나 같은애가 제일 위에 있을 동안에
+        # *가 나왔으므로 +가 나오거나 스택이 빌때까지 반복한다.
+        while stack and stack[-1] == '*':
+            # 출력한다.
+            result_expr += stack.pop()
+        #  그 후 내가 들어간다.
+        stack.append(token)
+    # 아니면 +다
+    else:
+        # 나보다 우선순위 낮은애는 없으니 다 뺀다
+        while stack:
+            result_expr += stack.pop()
+        # 그 후 내가 들어간다.
+        stack.append(token)
+
+# stack을 마저 비운다
+while stack:
+    result_expr += stack.pop()
+
+# 변환 결과 확인
+# print(result_expr)
+
+# 후위표기 계산
+# 숫자는 스택에 넣고
+# 연산자가 나오면 스택에서 숫자 두개 빼고 계산
+for token in result_expr:
+    # 만약 숫자라면
+    if token not in '*+':
+        stack.append(int(token))
+        continue
+    
+    # 스택에서 숫자를 두개를 빼온다.
+    right = stack.pop()
+    left = stack.pop()
+
+    # 연산자에 맞춰서 연산한다.
+    if token == '+':
+        stack.append(left + right)
+    else:
+        stack.append(left*right)
+
+print(stack.pop())
