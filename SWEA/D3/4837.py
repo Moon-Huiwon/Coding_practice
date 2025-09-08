@@ -21,3 +21,25 @@ for t in range(T):
 
     print(f'#{t+1} {len(partition_group)}')
 
+#%%
+# 재귀함수 활용
+def recur(cnt, subset):
+    global ans
+    if cnt == 12:
+        if len(subset) == N and sum(subset) == K:
+            ans += 1
+        return
+    
+    # 부분 집합에 넣기
+    recur(cnt+1, subset+[A[cnt]])
+
+    # 부분 집합에 안넣기
+    recur(cnt+1, subset)
+
+A = [num+1 for num in range(12)]
+T = int(input())
+for t in range(T):
+    N, K = map(int, input().split())
+    ans = 0
+    recur(0, [])
+    print(f'#{t+1} {ans}')
