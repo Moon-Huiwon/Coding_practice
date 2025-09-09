@@ -85,3 +85,39 @@ for t in range(T):
     bfs()
     
     print(f'#{t+1} {ans}')
+
+
+#%%
+import sys
+sys.stdin = open("input.txt")
+from collections import deque
+
+def bfs():
+    global ans
+    q = deque()
+    for i in range(N):
+        for j in range(M):
+            if arr[i][j] == 'W':
+                q.append((i, j))
+    
+    while q:
+        x, y = q.popleft()
+        
+        for dx, dy in [(1,0),(-1,0),(0,1),(0,-1)]:
+            nx, ny = x+dx, y+dy
+
+            if 0 <= nx < N and 0 <= ny < M \
+                and visited[nx][ny] == 0 \
+                    and arr[nx][ny] == 'L':
+                visited[nx][ny] = visited[x][y] + 1
+                q.append((nx, ny))
+                ans += visited[nx][ny]
+
+T = int(input())
+for t in range(T):
+    N, M = map(int, input().split())
+    arr = [list(input()) for _ in range(N)]
+    visited = [[0]*M for _ in range(N)]
+    ans = 0
+    bfs()
+    print(f'#{t+1} {ans}')

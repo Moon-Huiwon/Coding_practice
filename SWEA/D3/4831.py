@@ -36,3 +36,25 @@ for t in range(T):
             break
     print((f'#{t+1} {charge_cnt}'))
 # %%
+T = int(input())
+for t in range(T):
+    K, N, M = map(int, input().split())
+    bus_stop = [0]*(N+1)
+    charge_num = list(map(int, input().split()))
+    for num in charge_num:
+        bus_stop[num] = 1
+
+    ans = 0
+    start_num = 0
+    while start_num + K < N:
+        if 1 in bus_stop[start_num+1:start_num+K+1]:
+            ans += 1
+            for i in range(start_num+K, start_num, -1):
+                if bus_stop[i] == 1:
+                    start_num = i
+                    break
+        else:
+            ans = 0
+            break
+
+    print(f'#{t+1} {ans}')

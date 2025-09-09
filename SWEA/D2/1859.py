@@ -28,3 +28,17 @@ for t in range(T):
     
     print(f'#{t+1} {profit}')
 
+#%%
+T = int(input())
+for t in range(T):
+    N = int(input())
+    prices = list(map(int, input().split()))
+    ans = 0
+    max_value = 0
+    for i in range(N-1, -1, -1):
+        if max_value < prices[i]:
+            max_value = prices[i]
+        else:
+            ans += max_value - prices[i]
+    
+    print(f'#{t+1} {ans}')
