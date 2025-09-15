@@ -2,7 +2,7 @@ def backtracking(start, lst):
     
     if len(lst) == M and lst not in result:
         result.append(lst)
-        result
+        return
     for i in range(start, N):
         backtracking(i+1, lst + [nums[i]])
 
