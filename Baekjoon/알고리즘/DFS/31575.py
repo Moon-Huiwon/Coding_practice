@@ -4,8 +4,8 @@ input = sys.stdin.readline
 def dfs(row, col):
     global ans
     
-    if ans == 'Yes':
-        return
+    # if ans == 'Yes':
+    #     return
 
     if (row, col) == (M-1, N-1):
         ans = 'Yes'
