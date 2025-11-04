@@ -14,3 +14,5 @@ ans.sort()
 
 for _, _, _, name in ans:
     print(name)
+
+#%%
