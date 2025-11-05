@@ -39,3 +39,5 @@ for key, value in card_dict.items():
         ans = int(key)
 
 print(ans)
+
+#%%
