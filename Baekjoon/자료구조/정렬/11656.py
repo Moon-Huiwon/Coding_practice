@@ -7,3 +7,5 @@ ans.sort()
 
 for a in ans:
     print(a)
+
+#%%
